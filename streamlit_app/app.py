@@ -3,8 +3,10 @@ import pandas as pd
 import joblib
 
 # Load model and feature names
-model = joblib.load('best_model.pkl')
-feature_names = joblib.load('feature_names.pkl')
+import os
+app_dir = os.path.dirname(os.path.abspath(__file__))
+model = joblib.load(os.path.join(app_dir, 'best_model.pkl'))
+feature_names = joblib.load(os.path.join(app_dir, 'feature_names.pkl'))
 
 # Page config
 st.set_page_config(page_title="Insurance Premium Predictor", page_icon="🏥", layout="centered")
